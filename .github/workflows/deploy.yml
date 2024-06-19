@@ -17,7 +17,11 @@ jobs:
     - name: Setup Node
       uses: actions/setup-node@v3
       with:
-        node-version: '16'
+        node-version: '20'
+
+    - name: Set up Environment
+      run: |
+        echo "NODE_OPTIONS=--openssl-legacy-provider" >> $GITHUB_ENV
 
     - name: Install Dependencies
       run: npm install

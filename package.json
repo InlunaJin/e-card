@@ -2,7 +2,7 @@
   "name": "e-card",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://inlunajin.github.io/e-card/",
+  "homepage": "https://Inlunajin.github.io/e-card",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
