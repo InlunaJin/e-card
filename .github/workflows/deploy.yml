@@ -10,14 +10,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3 # 更新为最新版本
+    - uses: actions/checkout@v3
       with:
-        fetch-depth: 0 # 可选，根据需要获取完整历史记录
+        fetch-depth: 0  # 获取完整历史记录，便于其他可能的用途，如生成更改日志
 
     - name: Setup Node
-      uses: actions/setup-node@v3 # 更新为最新版本
+      uses: actions/setup-node@v3
       with:
-        node-version: '20' # 更新为Node.js 20
+        node-version: '20'  # 使用 Node.js 的最新稳定版本
 
     - name: Install Dependencies
       run: npm install
@@ -28,6 +28,6 @@ jobs:
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@4.1.4
       with:
-        branch: gh-pages # GitHub Pages分支
-        folder: build # 構建產物所在的目錄
-        token: ${{ secrets.GH_TOKEN }} # 使用GitHub為您提供的token進行部署
+        branch: gh-pages  # 指定部署到 gh-pages 分支
+        folder: build  # 指定构建产物所在的目录
+        token: ${{ secrets.GH_TOKEN }}  # 使用存储在 secrets 中的 GitHub Token 进行部署
