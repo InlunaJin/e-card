@@ -1,0 +1,33 @@
+name: Deploy React App to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3 # 更新为最新版本
+      with:
+        fetch-depth: 0 # 可选，根据需要获取完整历史记录
+
+    - name: Setup Node
+      uses: actions/setup-node@v3 # 更新为最新版本
+      with:
+        node-version: '20' # 更新为Node.js 20
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Build React App
+      run: npm run build
+
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@4.1.4
+      with:
+        branch: gh-pages # GitHub Pages分支
+        folder: build # 構建產物所在的目錄
+        token: ${{ secrets.GH_TOKEN }} # 使用GitHub為您提供的token進行部署
