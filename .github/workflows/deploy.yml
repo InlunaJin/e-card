@@ -10,14 +10,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3 # 更新为最新版本
+    - uses: actions/checkout@v3
       with:
-        fetch-depth: 0 # 可选，根据需要获取完整历史记录
+        fetch-depth: 0
 
     - name: Setup Node
-      uses: actions/setup-node@v3 # 更新为最新版本
+      uses: actions/setup-node@v3
       with:
-        node-version: '20' # 更新为Node.js 20
+        node-version: '20'
+
+    - name: Set up Environment
+      run: |
+        echo "NODE_OPTIONS=--openssl-legacy-provider" >> $GITHUB_ENV
 
     - name: Install Dependencies
       run: npm install
@@ -28,6 +32,6 @@ jobs:
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@4.1.4
       with:
-        branch: gh-pages # GitHub Pages分支
-        folder: build # 構建產物所在的目錄
-        token: ${{ secrets.GH_TOKEN }} # 使用GitHub為您提供的token進行部署
+        branch: gh-pages
+        folder: build
+        token: ${{ secrets.GH_TOKEN }}
