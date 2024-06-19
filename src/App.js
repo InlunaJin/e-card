@@ -29,7 +29,7 @@ function App() {
   const [newText, setNewText] = useState('標題');
   const [newTextAnimation, setNewTextAnimation] = useState('標題'); // 定义 newTextAnimation 状态及其更新函数
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isSidebarVisible, setIsSidebarVisible] = useState(true); // 默认为true，使侧边栏可见
+  //const [isSidebarVisible, setIsSidebarVisible] = useState(true); // 默认为true，使侧边栏可见
 
   const COLORS = useMemo(() => ({
     oddSectionBackground: '#7EC0FC',
@@ -114,7 +114,8 @@ function App() {
       </div>
 
       <div className="content" style={{ paddingTop: '60px' }}>
-        <div className={`fixedBox ${isSidebarVisible ? '' : 'hideSidebar'}`} style={{ backgroundColor: sidebarBgColor }}>
+        <div className="fixedBox" style={{ backgroundColor: sidebarBgColor }}>
+
           <div className={`verticalText ${newTextAnimation}`}>{currentText}</div>
         </div>
         <Info id="info" />
