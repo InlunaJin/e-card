@@ -72,16 +72,16 @@ function App() {
     };
 
     if (scrollPosition >= positions.info && scrollPosition < positions.art) {
-      setNewText('信息');
+      setNewText('資訊');
       setSidebarBgColor(COLORS.oddSectionBackground);
     } else if (scrollPosition >= positions.art && scrollPosition < positions.ai) {
-      setNewText('艺术');
+      setNewText('美術');
       setSidebarBgColor(COLORS.evenSectionBackground);
     } else if (scrollPosition >= positions.ai && scrollPosition < positions.program) {
-      setNewText('人工智能');
+      setNewText('AI應用');
       setSidebarBgColor(COLORS.oddSectionBackground);
     } else if (scrollPosition >= positions.program) {
-      setNewText('编程');
+      setNewText('程式');
       setSidebarBgColor(COLORS.evenSectionBackground);
     }
   }, [COLORS, setNewText, setSidebarBgColor]);
